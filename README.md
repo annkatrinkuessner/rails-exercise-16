@@ -1,6 +1,6 @@
 # SWT2 2016/17 - Introductory Exercise
 
-[![Build Status](https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master)](https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master)
+[![Build Status](https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master)](https://travis-ci.org/annkatrinkuessner/rails-exercise-16)
 
 
 
