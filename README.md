@@ -1,5 +1,11 @@
 # SWT2 2016/17 - Introductory Exercise
 
+[![Build Status](https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master)](https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master)
+
+
+
+https://travis-ci.org/annkatrinkuessner/rails-exercise-16.svg?branch=master
+
 We prepared an application skeleton for you that has a failing test case.
 
 To pass the exercise, follow these steps:
