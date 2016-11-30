@@ -42,4 +42,6 @@ describe "Author creation page", :type => :feature do
     expect(Author.where(first_name:'Alan', last_name: 'Turing', homepage: "http://wikipedia.org/Alan_Turing")).to exist
   end
 
+
+
 end
