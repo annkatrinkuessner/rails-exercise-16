@@ -1,5 +1,29 @@
 require 'rails_helper'
 
+
+describe "Author Index Page", :type => :feature do
+
+  it"should have a add author link" do
+    visit '/authors'
+
+    expect(find_link("Add Author")).to have_text('Add Author')
+  end
+
+end
+
+describe "Author Show Page", :type => :feature do
+
+  it "should display the author's information" do
+        author = create(:author)
+        visit '/authors/1'
+
+        expect(page).to have_text(author.first_name)
+        expect(page).to have_text(author.last_name)
+        expect(page).to have_text(author.homepage)
+
+      end
+end
+
 describe "Author creation page", :type => :feature do
 
   it "should display 'New Author'" do
