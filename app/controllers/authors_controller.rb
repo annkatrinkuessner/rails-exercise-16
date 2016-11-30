@@ -1,6 +1,7 @@
 class AuthorsController < ApplicationController
 
   def index
+    @authors = Author.all
 
   end
 
@@ -28,6 +29,7 @@ class AuthorsController < ApplicationController
   def destroy
 
   end
+
 
 
   private
