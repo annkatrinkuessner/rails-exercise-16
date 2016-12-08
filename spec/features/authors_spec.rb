@@ -6,7 +6,7 @@ describe "Author Index Page", :type => :feature do
   it"should hlink to the add author page" do
     visit authors_path
 
-    expect(page).to have_css("a", text:"Add Author")
+    expect(page).to have_css("a", text:"add author")
   end
 
 
