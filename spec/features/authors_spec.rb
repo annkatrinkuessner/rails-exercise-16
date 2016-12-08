@@ -26,10 +26,10 @@ end
 
 describe "Author creation page", :type => :feature do
 
-  it "should display 'New Author'" do
+  it "should display 'Add Author'" do
     visit '/authors/new'
 
-    expect(page).to have_text("New Author")
+    expect(page).to have_text("Add Author")
   end
 
   it "should have a 'First Name' input field" do
