@@ -3,11 +3,12 @@ require 'rails_helper'
 
 describe "Author Index Page", :type => :feature do
 
-  it"should have a add author link" do
-    visit '/authors'
+  it"should hlink to the add author page" do
+    visit authors_path
 
-    expect(find_link("Add Author")).to have_text('Add Author')
+    expect(page).to have_css("a", text:"Add Author")
   end
+
 
 end
 
