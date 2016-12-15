@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 
-describe "Author Index Page", :type => :feature do
+describe "Author index page", :type => :feature do
 
-  it"should hlink to the add author page" do
+  it"should link to the new author page" do
     visit authors_path
 
     expect(page).to have_css("a", text:"add author")
