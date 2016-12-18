@@ -30,7 +30,23 @@ describe "New author page", :type => :feature do
     fill_in('First name', with: 'Alan')
     fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
     click_button("Save Author")
-    expect(page).to have_text("last name can't be blank")
+    expect(page).to have_text("Last name can't be blank")
+  end
+
+  it"should show validation errors for missing first name" do
+    visit new_author_path
+    fill_in('Last name', with: 'Turing')
+    fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
+    click_button("Save Author")
+    expect(page).to have_text("First name can't be blank")
+  end
+
+  it"should show validation errors for missing homepage" do
+    visit new_author_path
+    fill_in('First name', with: 'Alan')
+    fill_in('Last name', with: 'Turing')
+    click_button("Save Author")
+    expect(page).to have_text("Homepage can't be blank")
   end
 
   it "should display 'Add Author'" do
