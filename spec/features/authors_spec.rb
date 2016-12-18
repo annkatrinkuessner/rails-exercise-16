@@ -23,7 +23,15 @@ describe "Author Show Page", :type => :feature do
       end
 end
 
-describe "Author creation page", :type => :feature do
+describe "New author page", :type => :feature do
+
+  it"should show validation errors" do
+    visit new_author_path
+    fill_in('First name', with: 'Alan')
+    fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
+    click_button("Save Author")
+    expect(page).to have_text("last name can't be blank")
+  end
 
   it "should display 'Add Author'" do
     visit '/authors/new'
