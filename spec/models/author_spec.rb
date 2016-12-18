@@ -17,7 +17,19 @@ RSpec.describe Author, type: :model do
         a = Author.new
         a.first_name = "Alan"
         expect(a).to_not be_valid
-        end
+      end
+
+      it "should not validate without first name" do
+        a = Author.new
+        a.last_name = "Turing"
+        expect(a).to_not be_valid
+      end
+
+      it "should not validate without homepage" do
+        a = Author.new
+        a.first_name = "Alan"
+        expect(a).to_not be_valid
+      end
     end
 
   end
