@@ -8,6 +8,12 @@ describe "Author index page", :type => :feature do
     expect(page).to have_css("a", text:"Add author")
   end
 
+  it "should have a link to delete an author" do
+    create(:author)
+    visit authors_path
+    expect(page).to have_css("a", text:"Destroy")
+  end
+
 end
 
 describe "Author Show Page", :type => :feature do
@@ -19,7 +25,6 @@ describe "Author Show Page", :type => :feature do
         expect(page).to have_text(author.first_name)
         expect(page).to have_text(author.last_name)
         expect(page).to have_text(author.homepage)
-
       end
 end
 
