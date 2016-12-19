@@ -89,6 +89,41 @@ describe "New author page", :type => :feature do
     expect(Author.where(first_name:'Alan', last_name: 'Turing', homepage: "http://wikipedia.org/Alan_Turing")).to exist
   end
 
+  end
+
+  describe "Edit author page", :type => :feature do
+
+    it "should render" do
+      author = create(:author)
+      visit edit_author_path(author)
+    end
+
+    it "should update last name" do
+      author = create(:author)
+      visit edit_author_path(author)
+      expect(page).to have_text("Turing")
+      fill_in("Last name", with: 'Kay')
+      click_button("Update Author")
+      expect(page).to have_text("Kay")
+    end
+
+    it "should update first name" do
+      author = create(:author)
+      visit edit_author_path(author)
+      expect(page).to have_text("Alan")
+      fill_in("First name", with: 'Hans')
+      click_button("Update Author")
+      expect(page).to have_text("Hans")
+    end
+
+    it "should update homepageg" do
+      author = create(:author)
+      visit edit_author_path(author)
+      expect(page).to have_text("Alan")
+      fill_in("First name", with: 'Hans')
+      click_button("Update Author")
+      expect(page).to have_text("Hans")
+    end
 
 
-end
+  end
