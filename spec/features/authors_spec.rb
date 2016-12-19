@@ -29,7 +29,7 @@ describe "New author page", :type => :feature do
     visit new_author_path
     fill_in('First name', with: 'Alan')
     fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
-    click_button("Save Author")
+    click_button("Submit")
     expect(page).to have_text("Last name can't be blank")
   end
 
@@ -37,7 +37,7 @@ describe "New author page", :type => :feature do
     visit new_author_path
     fill_in('Last name', with: 'Turing')
     fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
-    click_button("Save Author")
+    click_button("Submit")
     expect(page).to have_text("First name can't be blank")
   end
 
@@ -45,7 +45,7 @@ describe "New author page", :type => :feature do
     visit new_author_path
     fill_in('First name', with: 'Alan')
     fill_in('Last name', with: 'Turing')
-    click_button("Save Author")
+    click_button("Submit")
     expect(page).to have_text("Homepage can't be blank")
   end
 
@@ -73,10 +73,10 @@ describe "New author page", :type => :feature do
     expect(page).to have_text("Homepage")
   end
 
-  it "should have a submit button 'Save Author'" do
+  it "should have a submit button Submit" do
     visit '/authors/new'
 
-    expect(page.find_button("Save Author").value).to eq("Save Author")
+    expect(page.find_button("Submit").value).to eq("Submit")
   end
 
   it "should create new author instances" do
@@ -84,7 +84,7 @@ describe "New author page", :type => :feature do
     fill_in('First name', with: 'Alan')
     fill_in('Last name', with: 'Turing')
     fill_in('Homepage', with: "http://wikipedia.org/Alan_Turing")
-    click_button("Save Author")
+    click_button("Submit")
 
     expect(Author.where(first_name:'Alan', last_name: 'Turing', homepage: "http://wikipedia.org/Alan_Turing")).to exist
   end
@@ -101,28 +101,25 @@ describe "New author page", :type => :feature do
     it "should update last name" do
       author = create(:author)
       visit edit_author_path(author)
-      expect(page).to have_text("Turing")
       fill_in("Last name", with: 'Kay')
-      click_button("Update Author")
+      click_button("Submit")
       expect(page).to have_text("Kay")
     end
 
     it "should update first name" do
       author = create(:author)
       visit edit_author_path(author)
-      expect(page).to have_text("Alan")
       fill_in("First name", with: 'Hans')
-      click_button("Update Author")
+      click_button("Submit")
       expect(page).to have_text("Hans")
     end
 
-    it "should update homepageg" do
+    it "should update homepage" do
       author = create(:author)
       visit edit_author_path(author)
-      expect(page).to have_text("Alan")
-      fill_in("First name", with: 'Hans')
-      click_button("Update Author")
-      expect(page).to have_text("Hans")
+      fill_in("Homepage", with: 'https://berglie.be')
+      click_button("Submit")
+      expect(page).to have_text('https://berglie.be')
     end
 
 
