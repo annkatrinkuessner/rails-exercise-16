@@ -16,3 +16,6 @@
 !/log/.keep
 /tmp
 /nbproject
+
+#IDE
+.idea/
