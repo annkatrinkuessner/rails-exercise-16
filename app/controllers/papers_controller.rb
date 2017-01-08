@@ -19,8 +19,11 @@ class PapersController < ApplicationController
 
   def create
     @paper = Paper.new(paper_params)
-    @paper.save
-    redirect_to @paper
+    if @paper.save
+      redirect_to @paper
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -34,7 +37,7 @@ class PapersController < ApplicationController
   private
 
   def paper_params
-    params.require(:paper).permit(:Title, :Venue, :Year)
+    params.require(:paper).permit(:title, :venue, :year)
   end
 
 end
