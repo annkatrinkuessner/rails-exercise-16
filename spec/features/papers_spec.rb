@@ -15,6 +15,16 @@ describe "New  paper page", :type => :feature do
     expect(page).to have_css("input[type='submit']")
   end
 
+  it "should save the paper" do
+    visit new_paper_path
+    fill_in 'Title', with: 'COMPUTING MACHINERY AND INTELLIGENCE'
+    fill_in 'Venue', with: 'Mind 49: 433-460'
+    fill_in 'Year', with: 1950
+    click_button("Submit")
+    expect(Paper.find_by(Year: "1950"))
+
+  end
+
 end
 
 describe "Paper index page", :type => :feature do
@@ -24,18 +34,4 @@ describe "Paper index page", :type => :feature do
   visit papers_path
   expect(page).to have_text("COMPUTING MACHINERY AND INTELLIGENCE")
   end
-end
-
-
-describe "Paper", :type => :feature do
-
-  it "can be saved" do
-    visit new_paper_path
-    fill_in 'Title', with: 'COMPUTING MACHINERY AND INTELLIGENCE'
-    fill_in 'Venue', with: 'Mind 49: 433-460'
-    fill_in 'Year', with: 1950
-    click_button("Submit")
-    expect(Paper.find_by(Year: "1950"))
-  end
-
 end
