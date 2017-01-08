@@ -13,9 +13,17 @@ describe "New  paper page", :type => :feature do
   it "should have a submit button" do
     visit new_paper_path
     expect(page).to have_css("input[type='submit']")
-
   end
 
+end
+
+describe "Paper index page", :type => :feature do
+
+  it "should show title, venue and year of all papers" do
+  create(:paper)
+  visit papers_path
+  expect(page).to have_text("COMPUTING MACHINERY AND INTELLIGENCE")
+  end
 end
 
 
