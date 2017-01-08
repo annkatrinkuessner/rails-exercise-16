@@ -1,19 +1,34 @@
 <h1>New Paper</h1>
 
-<%= form_for :paper do |f| %>
+<%= form_for :paper, url:papers_path do |f| %>
+
+    <% if @paper.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@paper.errors.count, "error") %> prohibited
+            this paper from being saved:
+          </h2>
+          <ul>
+            <% @paper.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
 <p>
-  <%= f.label :Title %><br>
-  <%= f.text_field :Title %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
 </p>
 
 <p>
-  <%= f.label :Venue %><br>
-  <%= f.text_field :Venue %>
+  <%= f.label :venue %><br>
+  <%= f.text_field :venue %>
 </p>
 
 <p>
-  <%= f.label :Year %><br>
-  <%= f.text_field :Year %>
+  <%= f.label :year %><br>
+  <%= f.text_field :year %>
 </p>
 <p>
   <%= f.submit "Submit"%>

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'new_author' => 'authors#new'
 
   get 'new_paper' => 'papers#new'
+  resources :papers
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
