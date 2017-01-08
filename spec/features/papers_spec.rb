@@ -17,3 +17,17 @@ describe "New  paper page", :type => :feature do
   end
 
 end
+
+
+describe "Paper", :type => :feature do
+
+  it "can be saved" do
+    visit new_paper_path
+    fill_in 'Title', with: 'COMPUTING MACHINERY AND INTELLIGENCE'
+    fill_in 'Venue', with: 'Mind 49: 433-460'
+    fill_in 'Year', with: 1950
+    click_button("Submit")
+    expect(Paper.find_by(Year: "1950"))
+  end
+
+end
