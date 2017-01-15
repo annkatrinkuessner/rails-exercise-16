@@ -8,6 +8,9 @@ gem 'sqlite3'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+gem 'jquery-rails'
+gem 'turbolinks'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.3'
   gem 'capybara', '~> 2.5'

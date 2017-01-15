@@ -12,8 +12,8 @@ describe "Author index page", :type => :feature do
     create(:author)
     visit authors_path
     expect(page).to have_css("a", text:"Destroy")
-    click_link("Destroy")
-    expect(Author.find_by(first_name: "Alan")).to be_nil
+    click_on('Destroy')
+    expect(Author.all).to be_empty
   end
 
 end
