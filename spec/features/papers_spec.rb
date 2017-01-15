@@ -68,7 +68,9 @@ describe "Paper index page", :type => :feature do
   it "should link to the new paper page" do
     visit papers_path
     expect(page).to have_css("a", text:"Add paper")
+    click_on("Add paper")
   end
+
 
 end
 
