@@ -71,6 +71,26 @@ describe "Paper index page", :type => :feature do
     click_on("Add paper")
   end
 
+  it "should link to paper page" do
+    create(:paper)
+    visit papers_path
+    expect(page).to have_css("a", text:'Show')
+  end
+
+  it "should delete an paper" do
+    create(:paper)
+    visit papers_path
+    expect(page).to have_css("a", text:'Destroy')
+    click_on('Destroy')
+    expect(Paper.all).to be_empty
+  end
+
+  it "should link to edit an paper" do
+    create(:paper)
+    visit papers_path
+    expect(page).to have_css("a", text:'Edit')
+  end
+
 
 end
 
