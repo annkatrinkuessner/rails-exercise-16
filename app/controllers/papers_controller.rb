@@ -37,10 +37,10 @@ class PapersController < ApplicationController
   end
 
   def destroy
-    #@paper = Author.find(params[:id])
-    #@paper.destroy
+    @paper = Paper.find(params[:id])
+    @paper.destroy
 
-    #redirect_to papers_path
+    redirect_to papers_path
 
   end
 
