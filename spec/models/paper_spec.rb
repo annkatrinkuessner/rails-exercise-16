@@ -25,6 +25,22 @@ RSpec.describe Paper, type: :model do
         p.year = 1950
         expect(p).to_not be_valid
       end
+      it "should not validate with non-integer year" do
+        p = Paper.new
+        p.title = "COMPUTING MACHINERY AND INTELLIGENCE"
+        p.venue =  "Mind 49: 433-460"
+        p.year = 'stuff'
+        expect(p).to_not be_valid
+      end
+      it "should validate with integer year" do
+        p = Paper.new
+        p.title = "COMPUTING MACHINERY AND INTELLIGENCE"
+        p.venue =  "Mind 49: 433-460"
+        p.year = 2016
+        expect{
+          paper.save!
+        }.to_not raise_error(ActiveRecord::RecordInvalid)
+      end
     end
   end
 end
