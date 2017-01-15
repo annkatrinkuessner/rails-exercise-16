@@ -34,6 +34,11 @@ RSpec.describe Author, type: :model do
         expect(a).to_not be_valid
       end
     end
-
+    context "with no papers" do
+      it "has an empty list of authors" do
+        a = Author.new
+        expect(a.papers).to be_empty
+      end
+    end
   end
 end

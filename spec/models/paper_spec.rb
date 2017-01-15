@@ -42,5 +42,11 @@ RSpec.describe Paper, type: :model do
         }.to_not raise_error(ActiveRecord::RecordInvalid)
       end
     end
+    context "with no authors" do
+      it "has an empty list of authors" do
+        p = Paper.new
+        expect(p.authors).to be_empty
+      end
+    end
   end
 end
